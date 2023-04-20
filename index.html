@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <script src="script.js" async defer></script>
+    <link
+    href=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Computer.svg/1024px-Computer.svg.png?20220907011846
+    rel="icon" type="image/x-icon" />
+
+    <title>Fundamentals of Security</title>
+  </head>
+  <body class="homepage">
+    <div id="wrapper">
+      <header>
+        <h1>Why You Should Be Concerned</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Introduction</a></li>
+            <li><a href="#threat">Threats</a></li>
+            <li><a href="#mitigation">Mitigation and Security Controls</a></li>
+            <li><a href="#privacy">Privacy Concerns</a></li>
+          </ul>
+        </nav>
+      </header>
+      <h2>Introduction</h2>
+      <p>
+        First of all, in the security world there are a lot of buzz words which
+        may seem to relate to the same thing, but in reality can be very
+        different depending on who you ask as there are multiple organistations
+        that set these definitions.
+      </p>
+
+      <h4>Key Definitions</h4>
+      <div class="flex-container">
+        <ul class="left">
+          <li>
+            <span class="inline-d"
+              >Information Security
+              <span class="definition">
+                - The protection of information and information systems from
+                unauthorized access, use, disclosure, disruption, modification,
+                or destruction in order to provide confidentiality, integrity,
+                and availability.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Cyber Security<span class="definition">
+                Measures and controls that ensure confidentiality, integrity,
+                and availability of the information processed and stored by a
+                computer.</span
+              >
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Computer Security<span class="definition">
+                - Prevention of damage to, protection of, and restoration of
+                computers, electronic communications systems, electronic
+                communications services, wire communication, and electronic
+                communication, including information contained therein, to
+                ensure its availability, integrity, authentication,
+                confidentiality, and nonrepudiation.</span
+              >
+            </span>
+          </li>
+
+          <li>
+            <span class="inline-d"
+              >Confidentiality
+              <span class="definition">
+                - Preserving authorized restrictions on access and disclosure,
+                including means for protecting personal privacy and proprietary
+                information.
+              </span>
+            </span>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <span class="inline-d"
+              >Integrity
+              <span class="definition">
+                - Guarding against improper information modification or
+                destruction, and includes ensuring information non-repudiation
+                and authenticity.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Availability<span class="definition">
+                - Ensuring timely and reliable access to and use of information.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Non-repudiation
+              <span class="definition">
+                - A service that is used to provide assurance of the integrity
+                and origin of data in such a way that the integrity and origin
+                can be verified and validated by a third party as having
+                originated from a specific entity.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >IoT
+              <span class="definition">
+                - Stands for Internet of Things. Used to describe any device
+                that is connected to a network and relies on interactions with
+                it's environment e.g. a smart thermostat. Also called Internet
+                of Trash due to the terrible security features these devices
+                usually have.
+              </span>
+            </span>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <span class="inline-d"
+              >Cryptography
+              <span class="definition">
+                - Branch of mathematics which focuses on obscuring information
+                from people/ organisations who shouldn't be able to see said
+                information through the use of complex algroithms.</span
+              >
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >APT<span class="definition">
+                - Acronym for advance persisent threat. A group/ organisation
+                which use use advanced hacking techniques to violate the
+                security systems of their targets. Usually backed by governments
+                and target key industries such as banking, healthcare and
+                military.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Script kiddie
+              <span class="definition">
+                - An individual with a low skill set and little financial
+                backing who uses existing scripts to exploit existing
+                vulnerabilties.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Firewall
+              <span class="definition">
+                - A device that monitors and filters "traffic" through the use
+                detection systems that analyse and react to specific patterns.
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <p>
+        All of the terms above are interlinked and the meaning of them depends
+        on who you ask as there are multiple organisations which set the
+        definitons of these terms. Information Security will usually include the
+        non-technical side of security as well, whereas Cybersecurity will not.
+        Computer security is essentially Cybersecurity but on a smaller scale.
+      </p>
+      <p>
+        All defintions taken from
+        <a href="https://csrc.nist.gov/glossary/" target="_blank">NIST</a>
+        which is one of main organistations which creates standards, guidelines
+        and best practices to manage Cybersecurity/ Information Security risks.
+        The other organistation being the
+        <a href="https://www.iso.org/home.html" target="_blank">ISO</a>, hence
+        the difference in defintions and best practices amongst other things.
+      </p>
+      <p>Boring bit over... for now.</p>
+
+      <h2 id="threat" class="shift">Threats</h2>
+      <p>
+        <em class="definition">
+          <a
+            href="https://csrc.nist.gov/glossary/term/cyber_threat"
+            target="_blank"
+            >Threat (NIST)</a
+          >
+          - Any circumstance or event with the potential to adversely impact
+          agency operations (including mission, functions, image, or
+          reputation), agency assets, or individuals through an information
+          system via unauthorized access, destruction, disclosure, modification
+          of information, and/or denial of service.</em
+        >
+      </p>
+      <p>
+        The reasons, techniques and perpetrators of cyber crime vary massively
+        ranging from revenge, financial gain, espionage or simply just for fun
+        and are carried out by individuals, organisations and nations with
+        varying degrees of damage.
+      </p>
+
+      <h3>Types of Attacks</h3>
+      <div class="flex-container">
+        <ul class="left">
+          <li>
+            <a
+              href="https://www.nist.gov/itl/smallbusinesscyber/guidance-topic/phishing"
+              target="_blank"
+              >Phishing</a
+            >
+            <ul>
+              <li>
+                <span class="inline-d"
+                  >What is it
+                  <span class="definition">
+                    - A form of
+                    <a
+                      href="https://www.itgovernance.co.uk/social-engineering-attacks"
+                      target="_blank"
+                      >social engineering</a
+                    >
+                    where the target is tricked into performing an action which
+                    leads to a vulnerabilty.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How is it carried out
+                  <span class="definition">
+                    - The attacker will usually send out emails or messages
+                    which appear to be genuine, such as a fake bank statement.
+                    This deceitful email will then trick the user into entering
+                    their bank details which are then transferred back to the
+                    attacker, allowing them to steal funds from the account.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How can it be prevented
+                  <span class="definition">
+                    - Being aware of phishing attacks and taking care when
+                    clicking on links in emails/ messages is the best prevention
+                    technique here. Organisations may also introduce filters
+                    into their email system which restricts emails coming from
+                    outside sources.
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a
+              href="https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection"
+              target="_blank"
+              >Dos and DDoS</a
+            >
+            <ul>
+              <li>
+                <span class="inline-d"
+                  >What is it
+                  <span class="definition">
+                    - DoS and DDoS are both acronyms for Denial of Service and
+                    Distributed Denial of Service respectively. Usually directed
+                    towards organisations and governments instead of individuals
+                    as a result of ideology instead of financial gain.
+                  </span>
+                </span>
+                <p></p>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How is it carried out
+                  <span class="definition">
+                    - Both similar as they both overload a server with requests,
+                    resulting in reduced functionallity for that server and
+                    potentially shutting it down, hence DoS. DDoS attacks come
+                    from a network of connected computers called botnets whereas
+                    DoS attacks originate from one source. DDoS attacks are
+                    usually more punishing because of this as it can be
+                    difficult to find the origin and block it from making
+                    requests to a server.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How can it be prevented
+                  <span class="definition">
+                    - By using a combination of Intrusion Detection Systems and
+                    Intrusion Prevention Systems. These basically just monitor
+                    and block any unwanted connections by matching patterns
+                    between what is actually happening and what they have been
+                    &ldquo;told&rdquo; what a danger is.
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <a
+              href="https://www.ncsc.gov.uk/guidance/mitigating-malware-and-ransomware-attacks"
+              target="_blank"
+              >Malware Attack</a
+            >
+            <ul>
+              <li>
+                <span class="inline-d"
+                  >What is it
+                  <span class="definition">
+                    - Generic term for any attack involving malicious software.
+                    Examples include key-loggers which track what you have typed
+                    and
+                    <a
+                      href="https://csrc.nist.gov/glossary/term/worm"
+                      target="_blank"
+                      >worms</a
+                    >
+                    which replicate themselves and infect inter-connected
+                    devices as opposed to a regular virus which usually only
+                    infect one machine.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How is it carried out
+                  <span class="definition">
+                    - Usually there is an element of social engineering involved
+                    such as a phishing attack with a seemingly legitimate
+                    looking link which actually contains a malicious payload.
+                    Another way in which this is achieved is through
+                    <a
+                      href="https://portswigger.net/web-security/cross-site-scripting"
+                      >Cross Site Scripting (XSS)</a
+                    >. To achieve this attackers will take advantage of an
+                    insecure website and sneakily embed the malicious software,
+                    which is then executed when a user accesses that website.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How can it be prevented
+                  <span class="definition">
+                    - Some overlap with preventing phishing as social
+                    engineering is a key part in the delivery of malware so
+                    awareness of the way in which attackers operate is key.
+                    Anti-virus software is also a good idea. Some organisations
+                    impose restrictions on the devices their employees use. This
+                    is known as
+                    <a
+                      href="https://www.intel.co.uk/content/www/uk/en/business/enterprise-computers/resources/system-hardening.html"
+                      target="_blank"
+                      >System Hardening</a
+                    >
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="https://www.kaspersky.com/resource-center/definitions/brute-force-attacks"
+              target="_blank"
+              >Brute Force Attack
+            </a>
+            <ul>
+              <li>
+                <span class="inline-d"
+                  >What is it
+                  <span class="definition"
+                    >- A way in which an attacker &ldquo;cracks&rdquo; a
+                    password in order to gain unauthorized access to a system.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How is it carried out
+                  <span class="definition">
+                    - Achieved through a program which normally submits between
+                    10,000 and 1 billion passwords per second depending on how
+                    powerful their equipment is. Simple to do and very
+                    effective.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How can it be prevented
+                  <span class="definition">
+                    - Using very strong passwords i.e. long, not an actual word,
+                    and containing a mix of numbers, symbols and letters.
+                    Another way which prevents unauthorized access even if the
+                    password is cracked is by using two-factor authentication
+                    (2FA) so when trying to log into a computer/ service the
+                    user will also have to enter the new factor (usually a
+                    randomly generated number).
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <a
+              href="https://www.w3schools.com/sql/sql_injection.asp"
+              target="_blank"
+              >SQL Injection
+            </a>
+            <ul>
+              <li>
+                <span class="inline-d"
+                  >What is it
+                  <span class="definition">
+                    SQL is an acronym for structured query language and is
+                    usually used to gather and manipulate databases. SQL
+                    Injection or SQLI is used to retrieve data such as passwords
+                    and other credentials.</span
+                  >
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How is it carried out
+                  <span class="definition">
+                    - When there is the combination of website with weak
+                    security and a place where text can be inserted e.g. a login
+                    page an SQL command can be injected which either, retrives,
+                    deletes or manipulates data in the targetted database.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How can it be prevented
+                  <span class="definition">
+                    - Can be prevented by placing restrictions on input fields,
+                    creating a whitelist of permitted SQL commands and maintain
+                    up to date software if possible.
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiAjaC5lbH-AhUyR0EAHcpcA38QFnoECA8QAQ&url=https%3A%2F%2Fprivacybee.com%2Fblog%2Fwhat-is-packet-sniffing%2F&usg=AOvVaw29_Q0IGpquZXyYWmYjkmcDs"
+              target="_blank"
+              >Packet Sniffing
+            </a>
+            <ul>
+              <li>
+                <span class="inline-d"
+                  >What is it
+                  <span class="definition">
+                    A technique which in which a hacker uses a packet sniffing
+                    tool to gather information on the flow of data on a
+                    network</span
+                  >
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How is it carried out
+                  <span class="definition">
+                    - Fairly simple to do and can be done at home. Simply
+                    download wireshark or some other Packet sniffing software
+                    and away you go.
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="inline-d"
+                  >How can it be prevented
+                  <span class="definition">
+                    - The use of a VPN and only visiting websites that start
+                    with HTTPS would be advisable.
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-container" id="a">
+        <div class="cards" id="chn">
+          <h3>China</h3>
+
+          <button class="btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg"
+              alt="Flag of China"
+            />
+          </button>
+
+          <!--Modal Start-->
+          <div class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">×</span>
+                <h3>Case Study - Wicked Panda</h3>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Wicked Panda, also know as APT41 is a Chinese state sponsored
+                  APT group (Advance Persistent Threat) which is currently on a
+                  world tour of attacks, targetting industries such as
+                  healthcare, manufacturing and aviation.
+                </p>
+                <p>
+                  They use a wide range of techniques in order to carry out
+                  their goals, such as SQL injection, phishing, ransomware and
+                  spyware.
+                </p>
+                <p>
+                  <a
+                    href="https://cyberscoop.com/bayer-breached-china-wicked-panda/"
+                    >Wicked Panda</a
+                  >
+                </p>
+                <p>
+                  <a
+                    href="https://www.scmagazine.com/analysis/threat-intelligence/apt41-spear-phishing-supply-chain-campaigns-target-pharma-healthcare"
+                    >ATP41</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--Modal end-->
+
+          <h4 class="centre-t">Country profile</h4>
+          <ul class="centre-t">
+            <li>Capital - Beijing</li>
+            <li>Population - 1.412 billion (2021)</li>
+            <li>State Chairman - Xi Jinping</li>
+            <li>Adversaries - Taiwan, USA, UK</li>
+          </ul>
+        </div>
+
+        <div class="cards" id="irn">
+          <h3>Iran</h3>
+          <button class="btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Iran.svg"
+              alt="Flag of Iran"
+            />
+          </button>
+
+          <!--Modal Start-->
+          <div class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">×</span>
+                <h3>Case Study - Elfin</h3>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Elfin is an Iranian sponsored APT group. Also known as APT33
+                  and Charming Kitten.
+                </p>
+                <p>
+                  Became famous in 2012 after an attack on Saudi Arabia's state
+                  owned oil company,
+                  <a href="https://en.wikipedia.org/wiki/Saudi_Aramco">Aramco</a
+                  >.
+                </p>
+                <p>
+                  In this attack over 35,000 windows based machines were
+                  infected with the Shamoon virus causing data to be deleted and
+                  overwritten, preventing any attempt of recovery.
+                </p>
+                <p>
+                  This resulted in the supply levels of petrol and other crude
+                  oil derivatives to reach dangerously low levels due to payment
+                  processing issues. Also left Saudi Arabia with no choice but
+                  to buy most of the world's available hard drives, further
+                  straining the current supply chain issues at the time due to
+                  floods in Thailand.
+                </p>
+                <p>
+                  <a
+                    href="https://www.csoonline.com/article/3385126/apt-group-elfin-switches-from-data-destruction-to-data-stealing-via-winrar-vulnerability.html"
+                    >Elfin</a
+                  >,
+                  <a
+                    href="https://money.cnn.com/2015/08/05/technology/aramco-hack/"
+                    >Aramco hack</a
+                  >,
+                  <a
+                    href="https://money.cnn.com/2011/11/01/technology/thailand_flood_supply_chain/?iid=EL"
+                    >Supply chain issues in Thailand</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--Modal end-->
+          <h4 class="centre-t">Country Profile</h4>
+          <ul class="centre-t">
+            <li>Capital - Tehran</li>
+            <li>Population - 87.92 million (2021)</li>
+            <li>Supreme Leader - Ali Khamenei</li>
+            <li>Adversaries - Saudi Arabia, USA, UK</li>
+          </ul>
+        </div>
+        <div class="cards">
+          <h3>Russia</h3>
+          <button class="btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png?20120812011549"
+              alt="Flag of Russia"
+            />
+          </button>
+          <!--Modal Start-->
+          <div class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">×</span>
+                <h3>Case Study - Sandworm</h3>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Sandworm is another ATP and is a division of the Russian
+                  military. Also called Voodoo Bear.
+                </p>
+                <p>
+                  In 2015 this group carried out an attack on Ukraine's power
+                  grid, causing power outages for ~230,000 people.
+                </p>
+                <p>
+                  To achieve this they used BlackEnergy 3 which is the 3<sup
+                    >rd</sup
+                  >
+                  edition of the BlackEnergy malware which in it's early stages
+                  would "infect" machines allowing a botnet to be created in
+                  order to perform DDoS attacks. The latest edition has a
+                  greatly improved functionallity and includes key logging,
+                  screenshots, scan networks and the ability to remotely execute
+                  programs. In this incident the attack was spread via a
+                  sophisticated spear phishing attack, causing an employee to
+                  download the malware from an email they recieved.
+                </p>
+                <p>
+                  <a
+                    href="https://blog.isa.org/lessons-learned-forensic-analysis-ukrainian-power-grid-cyberattack-malware"
+                    >Analysis of the Attack</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--Modal End-->
+          <h4 class="centre-t">Country Profile</h4>
+          <ul class="centre-t">
+            <li>Capital - Moscow</li>
+            <li>Population - 143.4 million (2021)</li>
+            <li>President - Vladimir Putin</li>
+            <li>Adversaries - USA, UK, Ukraine</li>
+          </ul>
+        </div>
+        <div class="cards usa">
+          <h3>United States of America</h3>
+          <button class="btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
+              alt="Flag of USA"
+            />
+          </button>
+
+          <!-- Modal content -->
+          <div class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">×</span>
+                <h3>Case Study - Stuxnet</h3>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Stuxnet is a worm developed by the USA to attack Iranian
+                  nuclear facilities in order to halt the development of nuclear
+                  weapons.
+                </p>
+                <p>
+                  It is believe that the worm was introduced to the facility via
+                  a random USB and then worms being worms, propagated itself
+                  through their networks and then disrupt SCADA and PLC systems
+                  used to control centrifuges for the processing of Uranium.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!--Modal End-->
+          <h4 class="centre-t">Country Profile</h4>
+          <ul class="centre-t">
+            <li>Capital - Washington DC</li>
+            <li>Population - 331.9 million (2021)</li>
+            <li>Leader - Joe Biden</li>
+            <li>Adversaries - China, Iran, Russia, Venezuela</li>
+          </ul>
+        </div>
+      </div>
+      <h2 id="mitigation" class="shift">Mitigation and Security Controls</h2>
+      <p>
+        The global cyber security industry is spreading like a virus with no
+        signs of slowing down and according to these people
+        <a
+          href="https://cybersecurityventures.com/cybersecurity-spending-2021-2025/#:~:text=Global%20Cybersecurity%20Spending%20To%20Exceed%20%241.75%20Trillion%20From%202021%2D2025&text=Cybersecurity%20Spending.,PHOTO%3A%20Cybercrime%20Magazine."
+          >these people</a
+        >, total spending on cyber security is set to reach $1.75 trillion
+        between 2021 and 2025.
+      </p>
+      <h3>Mitigation For businesses</h3>
+      <p>
+        Although there will be some slight variation from industry to industry
+        based on the regulations they are expected to follow there is a general
+        approach that most companies choose to take. Can be divided into human
+        and technical factors.
+      </p>
+      <h4>Human</h4>
+      <p>
+        The human error side is an extremely vulnerable side of cyber security,
+        with some organistations having millions of employees it is not
+        realistic to expect perfection. There are methods which exist to the
+        reduce vulnerabilties introduced.
+      </p>
+      <p>
+        First of all, all employees need to be made aware of the risks the
+        business face and how these risks are carried out. As covered
+        previously, attackers can perform spear phishing attacks to either gain
+        access to a system or to spread malware. If there is not an effective
+        policy in place outlining staff training on the cyber security risks the
+        onus cannot be on the employee. Other policies put in place to mitigate
+        risk may include a clean desk policy i.e. no confidential information
+        out in the open.
+      </p>
+      <p>
+        Secondly, there should policies in place detailling a incident response
+        plan which should go outline the following steps...
+      </p>
+      <div class="flex-container">
+        <ul class="left">
+          <li>
+            <span class="inline-d"
+              >Preparation
+              <span>Performing drills, policy reviews, staff training</span>
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Identification
+              <span
+                >Time of attack, business areas affected(not usually physical
+                locations, but possible), who discovered it.</span
+              >
+            </span>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <span class="inline-d"
+              >Containment
+              <span
+                >Making sure the attack doesn't spread to other business areas.
+                May necessitate taking certain services offline.</span
+              >
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Eradication
+              <span
+                >Removing any potentially infected machines. Does the whole
+                system need to be replaced?</span
+              >
+            </span>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <span class="inline-d"
+              >Recovery
+              <span
+                >Returning affected business areas to a trustworthy state.</span
+              >
+            </span>
+          </li>
+          <li>
+            <span class="inline-d"
+              >Lessons Learned
+              <span
+                >Discussion on what needs to change so this type of attack won't
+                happen again.</span
+              >
+            </span>
+          </li>
+        </ul>
+      </div>
+      <a
+        href="https://www.securitymetrics.com/blog/6-phases-incident-response-plan"
+        target="_blank"
+        >Security Metrics &#8593;</a
+      >
+      <h4>Technical</h4>
+      <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </p>
+
+      <h3>Personal Mitigation</h3>
+      <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </p>
+      <h2 id="privacy" class="shift">Privacy Concerns</h2>
+      <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </p>
+      <div id="data">
+        <h4>Your data</h4>
+        <p class="information"></p>
+      </div>
+      <footer>
+        <p>&copy;</p>
+      </footer>
+    </div>
+  </body>
+</html>

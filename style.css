@@ -1,0 +1,296 @@
+/*Basics */
+* {
+  box-sizing: border-box;
+  color: #fffff0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: lighter;
+}
+
+body {
+  background-color: #121212;
+  margin: 2.5em;
+}
+#wrapper {
+  background-color: #121212;
+  margin: auto;
+}
+header {
+  border-bottom: solid 0.05em #c1e1c1;
+  border-radius: 0;
+  position: sticky; /* keeps the header at the top */
+  top: 0;
+  z-index: 10;
+  height: 6em;
+  background-color: #121212;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  margin-top: 0.5em;
+  color: salmon;
+}
+h2 {
+  color: salmon;
+  text-transform: uppercase;
+  font-weight: 525;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0.25em;
+}
+
+h4 {
+  text-decoration: underline;
+}
+.centre-t {
+  text-align: center;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h5 {
+  text-align: center;
+}
+
+img {
+  max-width: 75%;
+  height: auto;
+  display: block;
+  margin: auto;
+  border-radius: 0.7em;
+}
+
+img:hover {
+  box-shadow: 0.15em 0.15em 1em rgba(193, 225, 193, 0.4);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+nav li {
+  text-align: center;
+  display: inline;
+  margin: 0.4em;
+}
+ul {
+  margin: 0.4em;
+  padding: 0;
+  list-style: none;
+}
+
+.two-columns {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+li {
+  margin-left: 0.75em;
+  padding: 0.25em;
+}
+nav {
+  text-align: center;
+}
+em {
+  color: #fffdd0;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #c1e1c1;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #fffff0;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.shift {
+  display: block;
+}
+
+.inline-d {
+  color: #fac898;
+}
+.inline-d:active,
+.inline-d:hover {
+  color: #a7c7e7;
+}
+/* Modal Content */
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 30vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #121212;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+
+  /* use of -webkit ensures compatibility when using chrome and safari*/
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #121212;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 0.1em;
+  background-color: #ff6961;
+  color: white;
+}
+
+.modal-body {
+  padding: 0.25em;
+}
+
+/*Modal End*/
+
+.definition {
+  display: none;
+  overflow: hidden;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.cards {
+  width: 95%;
+  height: 25em;
+  border: solid #c1e1c1 0.05em;
+  margin-bottom: 2em;
+  box-shadow: 0.1em 0.1em 1em rgba(193, 225, 193, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-radius: 0.7em;
+}
+
+.cards:hover {
+  /* transform: scale(1.01); */
+  box-shadow: 0.1em, 0.1em 1em rgba(193, 225, 193, 0.5);
+  /* cursor: pointer; */
+}
+
+@media screen and (min-width: 31em) and (max-width: 59em) {
+  .cards {
+    flex: 1 0 40%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    height: 30em;
+  }
+}
+
+@media screen and (min-width: 60em) and (max-width: 99em) {
+  .cards {
+    flex: 1 0 30%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    height: 30em;
+  }
+  .usa {
+    max-width: 33%;
+  }
+  .flex-container {
+    width: 90%;
+    margin-left: 6.25%;
+    display: flex;
+    flex-direction: row;
+  }
+  .left,
+  .right {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 100em) {
+  .cards {
+    flex: 1 0 30%;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    height: 40em;
+  }
+}
+
+/**/
+
+footer {
+  text-align: center;
+  margin-top: 3em;
+  border-top: solid 0.1em #a7c7e7;
+}
